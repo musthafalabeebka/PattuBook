@@ -1,3 +1,11 @@
+//
+//  TransactionRowView.swift
+//  PattuBook
+//
+//  Created by Musthafa Labeeb K A on 26/10/25.
+//
+import SwiftUI
+
 struct TransactionRowView: View {
     let transaction: Transaction
     
@@ -12,7 +20,7 @@ struct TransactionRowView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
-                Text(transaction.date, style: .date)
+                Text(transaction.date!, style: .date)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

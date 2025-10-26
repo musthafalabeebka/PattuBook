@@ -1,3 +1,16 @@
+//
+//  TransactionViewModel.swift
+//  PattuBook
+//
+//  Created by Musthafa Labeeb K A on 26/10/25.
+//
+
+import Foundation
+public import CoreData
+internal import Combine
+
+
+
 class TransactionViewModel: ObservableObject {
     private let context: NSManagedObjectContext
     

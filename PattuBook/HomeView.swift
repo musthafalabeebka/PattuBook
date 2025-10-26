@@ -1,3 +1,14 @@
+//
+//  HomeView.swift
+//  PattuBook
+//
+//  Created by Musthafa Labeeb K A on 26/10/25.
+//
+
+import SwiftUI
+import Foundation
+public import CoreData
+
 struct HomeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var viewModel: CustomerViewModel

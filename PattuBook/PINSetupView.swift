@@ -1,3 +1,12 @@
+//
+//  PINSetupView.swift
+//  PattuBook
+//
+//  Created by Musthafa Labeeb K A on 26/10/25.
+//
+
+import SwiftUI
+
 struct PINSetupView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var appLockManager: AppLockManager

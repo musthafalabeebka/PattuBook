@@ -1,3 +1,11 @@
+//
+//  SettingsView.swift
+//  PattuBook
+//
+//  Created by Musthafa Labeeb K A on 26/10/25.
+//
+import SwiftUI
+
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var appLockManager: AppLockManager

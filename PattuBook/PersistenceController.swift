@@ -1,3 +1,11 @@
+//
+//  PersistenceController.swift
+//  PattuBook
+//
+//  Created by Musthafa Labeeb K A on 26/10/25.
+//
+public import CoreData
+
 class PersistenceController {
     static let shared = PersistenceController()
     

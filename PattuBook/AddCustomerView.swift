@@ -1,3 +1,11 @@
+//
+//  AddCustomerView.swift
+//  PattuBook
+//
+//  Created by Musthafa Labeeb K A on 26/10/25.
+//
+import SwiftUI
+
 struct AddCustomerView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: CustomerViewModel
@@ -40,16 +48,12 @@ struct AddCustomerView: View {
                     viewModel.addCustomer(
                         name: name,
                         phone: phone,
-                        address: address.isEmpty ? nil : address,
-                        photoData: photoData
                     )
                     presentationMode.wrappedValue.dismiss()
                 }
                 .disabled(name.isEmpty || phone.isEmpty)
             )
-            .sheet(isPresented: $showingImagePicker) {
-                ImagePicker(image: $selectedImage)
             }
         }
     }
-}
+

@@ -1,3 +1,15 @@
+//
+//  CustomerViewModel.swift
+//  PattuBook
+//
+//  Created by Musthafa Labeeb K A on 26/10/25.
+//
+
+import Foundation
+internal import Combine
+import SwiftUI
+import CoreData
+
 class CustomerViewModel: ObservableObject {
     private let context: NSManagedObjectContext
     @Published var customers: [Customer] = []
@@ -18,8 +30,8 @@ class CustomerViewModel: ObservableObject {
         
         if !searchText.isEmpty {
             result = result.filter {
-                $0.name.localizedCaseInsensitiveContains(searchText) ||
-                $0.phone.contains(searchText)
+                $0.name!.localizedCaseInsensitiveContains(searchText) ||
+                $0.phone!.contains(searchText)
             }
         }
         
@@ -27,9 +39,9 @@ class CustomerViewModel: ObservableObject {
         case .mostDue:
             result.sort { $0.totalDue > $1.totalDue }
         case .recentlyUpdated:
-            result.sort { $0.lastUpdated > $1.lastUpdated }
+            result.sort { $0.lastUpdated! > $1.lastUpdated! }
         case .nameAscending:
-            result.sort { $0.name < $1.name }
+            result.sort { $0.name! < $1.name! }
         }
         
         return result
@@ -50,28 +62,22 @@ class CustomerViewModel: ObservableObject {
         }
     }
     
-    func addCustomer(name: String, phone: String, address: String?, photoData: Data?) {
+    func addCustomer(name: String, phone: String) {
         let customer = Customer(context: context)
         customer.id = UUID()
         customer.name = name
         customer.phone = phone
-        customer.address = address
-        customer.photoData = photoData
         customer.totalDue = 0
-        customer.createdDate = Date()
+        customer.createDate = Date()
         customer.lastUpdated = Date()
         
         PersistenceController.shared.save()
         fetchCustomers()
     }
     
-    func updateCustomer(_ customer: Customer, name: String, phone: String, address: String?, photoData: Data?) {
+    func updateCustomer(_ customer: Customer, name: String, phone: String) {
         customer.name = name
         customer.phone = phone
-        customer.address = address
-        if let photoData = photoData {
-            customer.photoData = photoData
-        }
         customer.lastUpdated = Date()
         
         PersistenceController.shared.save()

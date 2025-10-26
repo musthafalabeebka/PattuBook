@@ -13,7 +13,7 @@ class PDFExportHelper {
         let pdfMetaData = [
             kCGPDFContextCreator: "Pattu Book",
             kCGPDFContextAuthor: "Shop Owner",
-            kCGPDFContextTitle: "Customer Statement - \(customer.name)"
+            kCGPDFContextTitle: "Customer Statement - \(String(describing: customer.name))"
         ]
         let format = UIGraphicsPDFRendererFormat()
         format.documentInfo = pdfMetaData as [String: Any]
@@ -58,9 +58,17 @@ class PDFExportHelper {
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .short
             
-            for transaction in customer.transactionsArray {
-                let dateStr = dateFormatter.string(from: transaction.date)
-                let typeStr = transaction.type.capitalized
+            // Build a sorted transactions array from Core Data relationship
+            let transactionsSet = customer.transactions as? Set<Transaction> ?? []
+            let transactions = transactionsSet.sorted { (lhs, rhs) in
+                let l = lhs.date ?? .distantPast
+                let r = rhs.date ?? .distantPast
+                return l < r
+            }
+            
+            for transaction in transactions {
+                let dateStr = dateFormatter.string(from: transaction.date ?? .distantPast)
+                let typeStr = transaction.type!.capitalized
                 let amountStr = String(format: "%.2f", transaction.amount)
                 let noteStr = transaction.note ?? "-"
                 
@@ -78,3 +86,4 @@ class PDFExportHelper {
         return data
     }
 }
+

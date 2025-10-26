@@ -1,3 +1,11 @@
+//
+//  AddTransactionView.swift
+//  PattuBook
+//
+//  Created by Musthafa Labeeb K A on 26/10/25.
+//
+import SwiftUI
+
 struct AddTransactionView: View {
     @Environment(\.presentationMode) var presentationMode
     let customer: Customer

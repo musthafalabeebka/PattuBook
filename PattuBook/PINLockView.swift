@@ -1,3 +1,11 @@
+//
+//  PINLockView.swift
+//  PattuBook
+//
+//  Created by Musthafa Labeeb K A on 26/10/25.
+//
+import SwiftUI
+
 struct PINLockView: View {
     @EnvironmentObject var appLockManager: AppLockManager
     @State private var pin = ""
