@@ -1,11 +1,6 @@
-//
-//  CustomerDetailView.swift
-//  PattuBook
-//
-//  Created by Musthafa Labeeb K A on 26/10/25.
-//
 import SwiftUI
-public import CoreData
+import CoreData
+
 
 struct CustomerDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -16,8 +11,14 @@ struct CustomerDetailView: View {
     @State private var pdfData: Data?
     
     init(customer: Customer) {
-        self.customer = customer
+        _customer = ObservedObject(wrappedValue: customer)
         _transactionVM = StateObject(wrappedValue: TransactionViewModel(context: PersistenceController.shared.container.viewContext))
+    }
+    
+    //Sorted transactions derived from the customer's relationship
+    private var transactions: [Transaction] {
+        let set = customer.transactions as? Set<Transaction> ?? []
+        return set.sorted { ($0.date ?? .distantPast) > ($1.date ?? .distantPast) }
     }
     
     var body: some View {
@@ -74,15 +75,5 @@ struct CustomerDetailView: View {
         pdfData = PDFExportHelper.generateCustomerStatement(customer: customer)
         showingShareSheet = true
     }
-    
-    // Derived transactions array from Core Data relationship to avoid dynamic member lookup issues
-    private var transactions: [Transaction] {
-        let set = customer.transactions as? Set<Transaction> ?? []
-        // Sort by date ascending; adjust as needed
-        return set.sorted { (lhs, rhs) in
-            let l = lhs.date ?? .distantPast
-            let r = rhs.date ?? .distantPast
-            return l < r
-        }
-    }
 }
+

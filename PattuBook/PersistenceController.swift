@@ -4,7 +4,7 @@
 //
 //  Created by Musthafa Labeeb K A on 26/10/25.
 //
-public import CoreData
+import CoreData
 
 class PersistenceController {
     static let shared = PersistenceController()
@@ -12,7 +12,7 @@ class PersistenceController {
     let container: NSPersistentContainer
     
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "PattuBook")
+        container = NSPersistentContainer(name: "PattuBookModel")
         
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")

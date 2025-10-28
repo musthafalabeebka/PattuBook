@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Foundation
-public import CoreData
+import CoreData
 
 struct HomeView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -116,4 +116,8 @@ struct HomeView: View {
             offsets.map { viewModel.filteredCustomers[$0] }.forEach(viewModel.deleteCustomer)
         }
     }
+}
+
+#Preview {
+    HomeView()
 }

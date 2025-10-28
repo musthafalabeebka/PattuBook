@@ -12,48 +12,33 @@ struct AddCustomerView: View {
     
     @State private var name = ""
     @State private var phone = ""
-    @State private var address = ""
-    @State private var showingImagePicker = false
-    @State private var selectedImage: UIImage?
     
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text(LocalizedString.get("customer_info"))) {
-                    TextField(LocalizedString.get("name"), text: $name)
-                    TextField(LocalizedString.get("phone"), text: $phone)
-                        .keyboardType(.phonePad)
-                    TextField(LocalizedString.get("address_optional"), text: $address)
+            VStack{
+                Form {
+                    Section(header: Text(LocalizedString.get("customer_info"))) {
+                        TextField(LocalizedString.get("name"), text: $name)
+                        TextField(LocalizedString.get("address"), text: $phone)
+                        .keyboardType(.phonePad)                }
                 }
                 
-                Section(header: Text(LocalizedString.get("photo_optional"))) {
-                    if let image = selectedImage {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 200)
-                    }
-                    Button(LocalizedString.get("select_photo")) {
-                        showingImagePicker = true
-                    }
+                Button(LocalizedString.get("save")) {
+                    viewModel.addCustomer(
+                        name: name,
+                        phone: phone
+                    )
+                    presentationMode.wrappedValue.dismiss()
                 }
+                .disabled(name.isEmpty || phone.isEmpty)
+            }
             }
             .navigationTitle(LocalizedString.get("add_customer"))
             .navigationBarItems(
                 leading: Button(LocalizedString.get("cancel")) {
                     presentationMode.wrappedValue.dismiss()
-                },
-                trailing: Button(LocalizedString.get("save")) {
-                    let photoData = selectedImage?.jpegData(compressionQuality: 0.8)
-                    viewModel.addCustomer(
-                        name: name,
-                        phone: phone,
-                    )
-                    presentationMode.wrappedValue.dismiss()
                 }
-                .disabled(name.isEmpty || phone.isEmpty)
             )
             }
         }
-    }
 

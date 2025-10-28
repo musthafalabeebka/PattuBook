@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-internal import CoreData
+import CoreData
 internal import Combine
 
 class AppLockManager: ObservableObject {
