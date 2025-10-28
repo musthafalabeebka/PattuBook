@@ -5,7 +5,7 @@
 //  Created by Musthafa Labeeb K A on 26/10/25.
 //
 import SwiftUI
-public import CoreData
+import CoreData
 
 struct ReportView: View {
     @Environment(\.managedObjectContext) private var viewContext

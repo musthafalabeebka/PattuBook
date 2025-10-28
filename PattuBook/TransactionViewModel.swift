@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public import CoreData
+import CoreData
 internal import Combine
 
 

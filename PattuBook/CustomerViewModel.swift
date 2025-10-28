@@ -78,6 +78,7 @@ class CustomerViewModel: ObservableObject {
     func updateCustomer(_ customer: Customer, name: String, phone: String) {
         customer.name = name
         customer.phone = phone
+        
         customer.lastUpdated = Date()
         
         PersistenceController.shared.save()

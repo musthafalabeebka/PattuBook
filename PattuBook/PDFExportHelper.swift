@@ -41,9 +41,9 @@ class PDFExportHelper {
             let infoAttributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.systemFont(ofSize: 14)
             ]
-            "Name: \(customer.name)".draw(at: CGPoint(x: 50, y: yPosition), withAttributes: infoAttributes)
+            "Name: \(String(describing: customer.name))".draw(at: CGPoint(x: 50, y: yPosition), withAttributes: infoAttributes)
             yPosition += 20
-            "Phone: \(customer.phone)".draw(at: CGPoint(x: 50, y: yPosition), withAttributes: infoAttributes)
+            "Phone: \(String(describing: customer.phone))".draw(at: CGPoint(x: 50, y: yPosition), withAttributes: infoAttributes)
             yPosition += 20
             "Total Due: ₹\(String(format: "%.2f", customer.totalDue))".draw(at: CGPoint(x: 50, y: yPosition), withAttributes: infoAttributes)
             yPosition += 40

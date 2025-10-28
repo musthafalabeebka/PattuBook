@@ -1,6 +1,6 @@
 // MARK: - App Entry Point
 import SwiftUI
-public import CoreData
+import CoreData
 
 @main
 struct PattuBookApp: App {
