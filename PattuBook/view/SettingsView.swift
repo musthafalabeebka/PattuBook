@@ -17,7 +17,7 @@ struct SettingsView: View {
             Form {
                 Section(header: Text(LocalizedString.get("security"))) {
                     Toggle(LocalizedString.get("enable_pin"), isOn: $appLockManager.isPINEnabled)
-                        .onChange(of: appLockManager.isPINEnabled) { enabled in
+                        .onChange(of: appLockManager.isPINEnabled) { enabled,disabled in
                             if enabled {
                                 showingPINSetup = true
                             } else {
