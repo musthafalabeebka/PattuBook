@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct CustomerRowView: View {
-    let customer: Customer
+    @ObservedObject var customer: Customer
     
     var body: some View {
         HStack(spacing: 12) {
