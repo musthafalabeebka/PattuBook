@@ -98,6 +98,8 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showingAddCustomer) {
                 AddCustomerView(viewModel: viewModel)
+                    .presentationDetents([.medium])
+                    .presentationDragIndicator(.hidden)
             }
             .sheet(isPresented: $showingSettings) {
                 SettingsView()

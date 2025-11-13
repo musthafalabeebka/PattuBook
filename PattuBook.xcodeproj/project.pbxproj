@@ -21,6 +21,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		B329F9AF2EC5B6C5003163BC /* Screenshots */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		B37912B62EA94D130041709F /* PattuBook */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -45,6 +50,7 @@
 		B37912AB2EA94D130041709F = {
 			isa = PBXGroup;
 			children = (
+				B329F9AF2EC5B6C5003163BC /* Screenshots */,
 				B37912B62EA94D130041709F /* PattuBook */,
 				B37912B52EA94D130041709F /* Products */,
 			);
@@ -74,6 +80,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				B329F9AF2EC5B6C5003163BC /* Screenshots */,
 				B37912B62EA94D130041709F /* PattuBook */,
 			);
 			name = PattuBook;

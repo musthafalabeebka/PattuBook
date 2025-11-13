@@ -16,6 +16,7 @@ struct AddCustomerView: View {
     var body: some View {
         NavigationView {
             VStack{
+                Spacer(minLength: 20)
                 Form {
                     Section(header: Text(LocalizedString.get("customer_info"))) {
                         TextField(LocalizedString.get("name"), text: $name)
@@ -32,13 +33,13 @@ struct AddCustomerView: View {
                 }
                 .disabled(name.isEmpty || phone.isEmpty)
             }
-            }
-            .navigationTitle(LocalizedString.get("add_customer"))
-            .navigationBarItems(
-                leading: Button(LocalizedString.get("cancel")) {
-                    presentationMode.wrappedValue.dismiss()
-                }
-            )
-            }
         }
+        .navigationTitle(LocalizedString.get("add_customer"))
+        .navigationBarItems(
+            leading: Button(LocalizedString.get("cancel")) {
+                presentationMode.wrappedValue.dismiss()
+            }
+        )
+    }
+}
 
