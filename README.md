@@ -113,8 +113,6 @@ open PattuBook.xcodeproj
   </tr>
 </table>
 
-> Add your app screenshots to the `/Screenshots` folder
-
 ---
 
 ## 📁 Project Structure
