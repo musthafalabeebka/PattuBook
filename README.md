@@ -166,9 +166,9 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 **Musthafa Labeeb**  
 iOS Developer – SwiftUI Specialist
 
-- GitHub: [@yourusername](https://github.com/musthafalabeebka)
-- Email: your.email@example.com
-- LinkedIn: [Your Name](https://linkedin.com/in/musthafalabeebka)
+- GitHub: [@musthafalabeebka](https://github.com/musthafalabeebka)
+- Email: musthafalabeebka@example.com
+- LinkedIn: [Musthafa Labeeb K A](https://linkedin.com/in/musthafalabeebka)
 
 ---
 
