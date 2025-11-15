@@ -76,7 +76,7 @@ Track key metrics:
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/PattuBook.git
+git clone https://github.com/musthafalabeebka/PattuBook.git
 ```
 
 ### Open in Xcode
