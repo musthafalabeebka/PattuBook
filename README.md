@@ -155,11 +155,6 @@ To report bugs or suggest improvements, please [open an issue](https://github.co
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
-
----
 
 ## 👤 Author
 
