@@ -159,7 +159,7 @@ To report bugs or suggest improvements, please [open an issue](https://github.co
 ## 👤 Author
 
 **Musthafa Labeeb**  
-iOS Developer – SwiftUI Specialist
+iOS Developer
 
 - GitHub: [@musthafalabeebka](https://github.com/musthafalabeebka)
 - Email: musthafalabeebka@gmail.com
