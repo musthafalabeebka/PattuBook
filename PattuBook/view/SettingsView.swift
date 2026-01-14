@@ -2,7 +2,7 @@
 //  SettingsView.swift
 //  PattuBook
 //
-//  Created by Musthafa Labeeb K A on 26/10/25.
+//  Created by Musthafa Labeeb K A on 10/01/26.
 //
 import SwiftUI
 

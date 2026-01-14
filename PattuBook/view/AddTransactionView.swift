@@ -1,54 +1,90 @@
 //
-//  AddTransactionView.swift
+//  AddCustomerView.swift
 //  PattuBook
 //
-//  Created by Musthafa Labeeb K A on 26/10/25.
+//  Created by Musthafa Labeeb K A on 05/01/26.
 //
 import SwiftUI
 
 struct AddTransactionView: View {
     @Environment(\.presentationMode) var presentationMode
+    
     let customer: Customer
     @ObservedObject var transactionVM: TransactionViewModel
+    let type: String
     
-    @State private var type = "credit"
     @State private var amount = ""
     @State private var note = ""
     
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text(LocalizedString.get("transaction_type"))) {
-                    Picker(LocalizedString.get("type"), selection: $type) {
-                        Text(LocalizedString.get("credit")).tag("credit")
-                        Text(LocalizedString.get("payment")).tag("payment")
+            VStack(spacing: 0) {
+                Form {
+                    Section {
+                        Text(
+                            type == "credit"
+                            ? "Add Credit"
+                            : "Add Payment"
+                        )
+                        .font(.headline)
+                        .foregroundColor(type == "credit" ? .red : .green)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
+                    
+                    Section(header: Text(LocalizedString.get("details"))) {
+                        TextField(
+                            LocalizedString.get("amount"),
+                            text: $amount
+                        )
+                        .keyboardType(.decimalPad)
+                        
+                        TextField(
+                            LocalizedString.get("note_optional"),
+                            text: $note
+                        )
+                    }
                 }
                 
-                Section(header: Text(LocalizedString.get("details"))) {
-                    TextField(LocalizedString.get("amount"), text: $amount)
-                        .keyboardType(.decimalPad)
-                    TextField(LocalizedString.get("note_optional"), text: $note)
+                // MARK: Bottom Save Button
+                VStack {
+                    Button {
+                        if let amountValue = Double(amount) {
+                            transactionVM.addTransaction(
+                                to: customer,
+                                type: type,
+                                amount: amountValue,
+                                note: note.isEmpty ? nil : note
+                            )
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    } label: {
+                        Text(LocalizedString.get("save"))
+                            .fontWeight(.semibold)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(
+                                type == "credit"
+                                ? Color.red
+                                : Color.green
+                            )
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                            .padding(.bottom, 10)
+                    }
+                    .disabled(amount.isEmpty)
+                    .opacity(amount.isEmpty ? 0.5 : 1)
                 }
+                .background(Color(UIColor.systemBackground))
             }
-            .navigationTitle(LocalizedString.get("add_transaction"))
+            .navigationTitle(
+                type == "credit"
+                ? LocalizedString.get("credit")
+                : LocalizedString.get("payment")
+            )
             .navigationBarItems(
                 leading: Button(LocalizedString.get("cancel")) {
                     presentationMode.wrappedValue.dismiss()
-                },
-                trailing: Button(LocalizedString.get("save")) {
-                    if let amountValue = Double(amount) {
-                        transactionVM.addTransaction(
-                            to: customer,
-                            type: type,
-                            amount: amountValue,
-                            note: note.isEmpty ? nil : note
-                        )
-                        presentationMode.wrappedValue.dismiss()
-                    }
                 }
-                .disabled(amount.isEmpty)
             )
         }
     }
