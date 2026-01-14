@@ -76,7 +76,7 @@ Track key metrics:
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/PattuBook.git
+git clone https://github.com/musthafalabeebka/PattuBook.git
 ```
 
 ### Open in Xcode
@@ -112,8 +112,6 @@ open PattuBook.xcodeproj
     <td align="center">Reports</td>
   </tr>
 </table>
-
-> Add your app screenshots to the `/Screenshots` folder
 
 ---
 
@@ -153,24 +151,19 @@ Contributions are welcome! Here's how you can help:
 4. **Push** to the branch (`git push origin feature/AmazingFeature`)
 5. **Open** a Pull Request
 
-To report bugs or suggest improvements, please [open an issue](https://github.com/yourusername/PattuBook/issues).
+To report bugs or suggest improvements, please [open an issue](https://github.com/musthafalabeebka/PattuBook/issues).
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
-
----
 
 ## 👤 Author
 
 **Musthafa Labeeb**  
-iOS Developer – SwiftUI Specialist
+iOS Developer
 
-- GitHub: [@yourusername](https://github.com/musthafalabeebka)
-- Email: your.email@example.com
-- LinkedIn: [Your Name](https://linkedin.com/in/musthafalabeebka)
+- GitHub: [@musthafalabeebka](https://github.com/musthafalabeebka)
+- Email: musthafalabeebka@gmail.com
+- LinkedIn: [Musthafa Labeeb K A](https://linkedin.com/in/musthafalabeebka)
 
 ---
 
